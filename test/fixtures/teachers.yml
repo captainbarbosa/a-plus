@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  class: MyString
+Mr_Math_Man:
+  name: Mr_Math_Man
+  class: Math I
 
-two:
-  name: MyString
-  class: MyString
+Mrs_Science_Lady:
+  name: Mrs_Science_Lady
+  class: Advanced Science

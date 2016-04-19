@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  assignment_name: MyString
-  grade: 1
-  student_id: 1
-  teacher_id: 1
+grade_1:
+  assignment_name: Review the Water Cycle
+  grade: 95
+  student: Alice_Smith
+  teacher: Mrs_Science_Lady
 
-two:
-  assignment_name: MyString
-  grade: 1
-  student_id: 1
-  teacher_id: 1
+grade_2:
+  assignment_name: Practice working with Fractions
+  grade: 88
+  student: Jimmy_McJim
+  teacher: Mr_Math_Man
