@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-Mr_Math_Man:
-  name: Mr_Math_Man
-  class: Math I
+mr_math_man:
+  name: Mr. Math Man
+  course: Math I
 
-Mrs_Science_Lady:
-  name: Mrs_Science_Lady
-  class: Advanced Science
+mrs_science_lady:
+  name: Mrs. Science Lady
+  course: Advanced Science
