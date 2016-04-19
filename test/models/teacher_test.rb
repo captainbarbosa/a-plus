@@ -11,6 +11,11 @@ class TeacherTest < ActiveSupport::TestCase
   end
 
   test "teachers have many grades" do
+    teacher = teachers(:mrs_science_lady)
+    grade_1 = grades(:grade_1)
+    grade_2 = grades(:grade_3)
 
+    assert_equal teacher.id, grade_1.teacher_id
+    assert_equal teacher.id, grade_2.teacher_id
   end
 end
