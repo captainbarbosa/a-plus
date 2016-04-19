@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-Alice_Smith:
-  name: Alice_Smith
-  teacher: Mrs_Science_Lady
+alice_smith:
+  name: Alice Smith
+  teacher: mrs_science_lady
 
-Jimmy_McJim:
-  name: Jimmy_McJim
-  teacher: Mr_Math_Man
+jimmy_mcjim:
+  name: Jimmy McJim
+  teacher: mr_math_man

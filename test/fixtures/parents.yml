@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-Jane_Smith:
-  name: Jane_Smith
-  student: Alice_Smith
+jane_smith:
+  name: Jane Smith
+  student: alice_smith
 
-James_McJim:
-  name: James_McJim
-  student: Jimmy_McJim
+james_mcjim:
+  name: James McJim
+  student: jimmy_mcjim
