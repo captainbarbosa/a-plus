@@ -7,3 +7,7 @@ jane_smith:
 james_mcjim:
   name: James McJim
   student: jimmy_mcjim
+
+jacob_mcjim:
+  name: Jacob McJim
+  student: jimmy_mcjim

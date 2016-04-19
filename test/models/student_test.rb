@@ -9,7 +9,10 @@ class StudentTest < ActiveSupport::TestCase
   end
 
   test "student has many parents" do
+    parent_1 = parents(:james_mcjim)
+    parent_2 = parents(:jacob_mcjim)
 
+    assert_equal parent_1.student_id, parent_2.student_id
   end
 
   test "student has many grades" do
