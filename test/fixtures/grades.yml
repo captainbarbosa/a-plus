@@ -9,5 +9,11 @@ grade_1:
 grade_2:
   assignment_name: Practice working with Fractions
   grade: 88
-  student: jimmy_mcJim
+  student: jimmy_mcjim
   teacher: mr_math_man
+
+grade_3:
+  assignment_name: Ecology Essay
+  grade: 88
+  student: jimmy_mcjim
+  teacher: mrs_science_lady

@@ -16,6 +16,12 @@ class StudentTest < ActiveSupport::TestCase
   end
 
   test "student has many grades" do
+    grade_2 = grades(:grade_2)
+    grade_3 = grades(:grade_3)
+    student = students(:jimmy_mcjim)
 
+    assert grade_2.student_id == grade_3.student_id
+    assert student.id = grade_2.student_id
+    assert student.id = grade_3.student_id
   end
 end
