@@ -13,9 +13,6 @@ class StudentsController < ApplicationController
     @student.build_user
   end
 
-  def edit
-  end
-
   def create
     @student = Student.new(student_params)
 
@@ -58,6 +55,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:user_id, :teacher_id, :name, user_attributes: [:name, :email, :encrypted_password])
+      params.require(:student).permit(:name, :teacher_id, user_attributes: [:id, :email, :password, :password_confirmation, :student_id] )
     end
 end

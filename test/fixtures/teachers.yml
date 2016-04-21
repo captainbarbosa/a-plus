@@ -3,9 +3,9 @@
 mr_math_man:
   name: Mr. Math Man
   course: Math I
-  user_id: mr_math_man
+  
 
 mrs_science_lady:
   name: Mrs. Science Lady
   course: Advanced Science
-  user_id: mrs_science_lady
+  

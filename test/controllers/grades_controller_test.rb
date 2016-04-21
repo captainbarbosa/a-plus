@@ -2,8 +2,9 @@ require 'test_helper'
 
 class GradesControllerTest < ActionController::TestCase
   setup do
+    @user = User.find_by(email: "mathman@email.com")
+    sign_in @user
     @grade = grades(:grade_1)
-    @user = users(:mr_math_man)
   end
 
   test "should get index" do

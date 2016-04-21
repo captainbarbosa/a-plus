@@ -2,45 +2,37 @@
 
 # STUDENTS ------------------------
 alice_smith:
-  name: Alice Smith
   email: alice@email.com
-  password_digest: alice_password
+  encrypted_password: "<%= Devise::Encryptor.digest User, "alice_password" %>"
 
 jimmy_mcjim:
-  name: Jimmy McJim
   email: jimmy@email.com
-  password_digest: jimmy_password
+  encrypted_password: "<%= Devise::Encryptor.digest User, "jimmy_password" %>"
 
 carl_cannoli:
-  name: Carl Cannoli
   email: carl@email.com
-  password_digest: carl_password
+  encrypted_password: "<%= Devise::Encryptor.digest User, "carl_password" %>"
 
 # TEACHERS ------------------------
 
 mr_math_man:
-  name: Mr. Math Man
   email: mathman@email.com
-  password_digest: mathman_password
+  encrypted_password: "<%= Devise::Encryptor.digest User, "mathman_password" %>"
 
 mrs_science_lady:
-  name: Mrs. Science Lady
   email: sciencerulez@email.com
-  password_digest: sciencelady_password
+  encrypted_password: "<%= Devise::Encryptor.digest User, "sciencelady_password" %>"
 
 # PARENTS -------------------------
 
 jane_smith:
-  name: Jane Smith
   email: jane@email.com
-  password_digest: jane_password
+  encrypted_password: "<%= Devise::Encryptor.digest User, "jane_password" %>"
 
 james_mcjim:
-  name: James McJim
   email: james@email.com
-  password_digest: james_password
+  encrypted_password: "<%= Devise::Encryptor.digest User, "james_password" %>"
 
 jacob_mcjim:
-  name: Jacob McJim
   email: jacob@email.com
-  password_digest: jacob_password
+  encrypted_password: "<%= Devise::Encryptor.digest User, "jacob_password" %>"

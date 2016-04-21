@@ -85,6 +85,8 @@ GEM
     mime-types-data (3.2016.0221)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    minitest-focus (1.1.2)
+      minitest (>= 4, < 6)
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -93,6 +95,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -167,12 +171,15 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  binding_of_caller
   byebug
   coffee-rails (~> 4.1.0)
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  minitest-focus
   pry
+  quiet_assets
   rails (= 4.2.6)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

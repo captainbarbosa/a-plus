@@ -3,14 +3,12 @@
 alice_smith:
   name: Alice Smith
   teacher: mrs_science_lady
-  user_id: alice_smith
-
+  
 jimmy_mcjim:
   name: Jimmy McJim
   teacher: mr_math_man
-  user_id: jimmy_mcjim
-
+  
 carl_cannoli:
   name: Carl Cannoli
   teacher: mr_math_man
-  user_id: carl_cannoli
+  

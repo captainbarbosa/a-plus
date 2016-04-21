@@ -39,6 +39,10 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'quiet_assets'
+
+  gem 'minitest-focus'
 end
 
 group :development do

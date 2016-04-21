@@ -2,6 +2,8 @@ require 'test_helper'
 
 class TeachersControllerTest < ActionController::TestCase
   setup do
+    @user = User.find_by(email: "mathman@email.com")
+    sign_in @user
     @teacher = teachers(:mr_math_man)
   end
 
@@ -18,7 +20,7 @@ class TeachersControllerTest < ActionController::TestCase
 
   test "should create teacher" do
     assert_difference('Teacher.count') do
-      post :create, teacher: {  }
+      post :create, teacher: { name: "Dr. Doolittle", course: "Animal Science" }
     end
 
     assert_redirected_to teacher_path(assigns(:teacher))
@@ -35,7 +37,7 @@ class TeachersControllerTest < ActionController::TestCase
   end
 
   test "should update teacher" do
-    patch :update, id: @teacher, teacher: {  }
+    patch :update, id: @teacher, teacher: { name: "Mr. Math Man", course: "Linear Algebra" }
     assert_redirected_to teacher_path(assigns(:teacher))
   end
 
