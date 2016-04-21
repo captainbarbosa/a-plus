@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ParentsControllerTest < ActionController::TestCase
   setup do
-    @parent = parents(:one)
+    @parent = parents(:jane_smith)
   end
 
   test "should get index" do

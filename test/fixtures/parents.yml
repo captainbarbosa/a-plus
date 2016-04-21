@@ -3,11 +3,14 @@
 jane_smith:
   name: Jane Smith
   student: alice_smith
+  user_id: jane_smith
 
 james_mcjim:
   name: James McJim
   student: jimmy_mcjim
+  user_id: james_mcjim
 
 jacob_mcjim:
   name: Jacob McJim
   student: jimmy_mcjim
+  user_id: jacob_mcjim

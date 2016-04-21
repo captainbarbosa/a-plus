@@ -1,11 +1,46 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: MyString
-  password_digest: MyString
+# STUDENTS ------------------------
+alice_smith:
+  name: Alice Smith
+  email: alice@email.com
+  password_digest: alice_password
 
-two:
-  name: MyString
-  email: MyString
-  password_digest: MyString
+jimmy_mcjim:
+  name: Jimmy McJim
+  email: jimmy@email.com
+  password_digest: jimmy_password
+
+carl_cannoli:
+  name: Carl Cannoli
+  email: carl@email.com
+  password_digest: carl_password
+
+# TEACHERS ------------------------
+
+mr_math_man:
+  name: Mr. Math Man
+  email: mathman@email.com
+  password_digest: mathman_password
+
+mrs_science_lady:
+  name: Mrs. Science Lady
+  email: sciencerulez@email.com
+  password_digest: sciencelady_password
+
+# PARENTS -------------------------
+
+jane_smith:
+  name: Jane Smith
+  email: jane@email.com
+  password_digest: jane_password
+
+james_mcjim:
+  name: James McJim
+  email: james@email.com
+  password_digest: james_password
+
+jacob_mcjim:
+  name: Jacob McJim
+  email: jacob@email.com
+  password_digest: jacob_password

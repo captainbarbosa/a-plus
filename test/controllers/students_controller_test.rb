@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StudentsControllerTest < ActionController::TestCase
   setup do
-    @student = students(:one)
+    @student = students(:alice_smith)
   end
 
   test "should get index" do

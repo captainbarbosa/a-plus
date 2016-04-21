@@ -1,29 +1,20 @@
 class GradesController < ApplicationController
   before_action :set_grade, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
 
-  # GET /grades
-  # GET /grades.json
   def index
     @grades = Grade.all
   end
 
-  # GET /grades/1
-  # GET /grades/1.json
   def show
   end
 
-  # GET /grades/new
   def new
     @grade = Grade.new
   end
 
-  # GET /grades/1/edit
   def edit
   end
 
-  # POST /grades
-  # POST /grades.json
   def create
     @grade = Grade.new(grade_params)
 
@@ -38,8 +29,6 @@ class GradesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /grades/1
-  # PATCH/PUT /grades/1.json
   def update
     respond_to do |format|
       if @grade.update(grade_params)
@@ -52,8 +41,6 @@ class GradesController < ApplicationController
     end
   end
 
-  # DELETE /grades/1
-  # DELETE /grades/1.json
   def destroy
     @grade.destroy
     respond_to do |format|

@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :students
   resources :grades
   resources :parents
   resources :teachers
+
+  resources :students do
+    resources :grades
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'grades#index'
+  root 'users#dashboard'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
