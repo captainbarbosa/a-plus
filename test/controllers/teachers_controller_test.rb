@@ -26,6 +26,21 @@ class TeachersControllerTest < ActionController::TestCase
     assert_redirected_to teacher_path(assigns(:teacher))
   end
 
+  test "new teacher should create user" do
+    assert_difference "User.count", +1 do
+      post :create, teacher: {
+        name: "Mrs. Language Lady",
+        user_attributes: {
+          email: "hola@email.com",
+          password: "password",
+          password_confirmation: "password"
+        }
+      }
+
+      assert_equal( {}, assigns(:teacher).errors.messages )
+    end
+  end
+
   test "should show teacher" do
     get :show, id: @teacher
     assert_response :success

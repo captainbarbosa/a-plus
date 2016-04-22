@@ -10,6 +10,7 @@ class TeachersController < ApplicationController
 
   def new
     @teacher = Teacher.new
+    @teacher.build_user
   end
 
   def edit
@@ -57,6 +58,6 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:name, :course)
+      params.require(:teacher).permit(:name, :course, user_attributes: [:id, :email, :password, :password_confirmation, :teacher_id])
     end
 end

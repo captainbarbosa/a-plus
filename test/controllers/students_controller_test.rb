@@ -50,7 +50,6 @@ class StudentsControllerTest < ActionController::TestCase
 
       assert_equal( {}, assigns(:student).errors.messages )
     end
-
   end
 
   test "should show student" do
