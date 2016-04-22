@@ -3,6 +3,7 @@ require 'test_helper'
 class TeachersControllerTest < ActionController::TestCase
   setup do
     @user = User.find_by(email: "mathman@email.com")
+    # Signing in an authorized user
     sign_in @user
     @teacher = teachers(:mr_math_man)
   end

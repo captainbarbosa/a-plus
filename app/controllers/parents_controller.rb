@@ -22,10 +22,8 @@ class ParentsController < ApplicationController
     respond_to do |format|
       if @parent.save
         format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
-        format.json { render :show, status: :created, location: @parent }
       else
         format.html { render :new }
-        format.json { render json: @parent.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -34,10 +32,8 @@ class ParentsController < ApplicationController
     respond_to do |format|
       if @parent.update(parent_params)
         format.html { redirect_to @parent, notice: 'Parent was successfully updated.' }
-        format.json { render :show, status: :ok, location: @parent }
       else
         format.html { render :edit }
-        format.json { render json: @parent.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,7 +42,6 @@ class ParentsController < ApplicationController
     @parent.destroy
     respond_to do |format|
       format.html { redirect_to parents_url, notice: 'Parent was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

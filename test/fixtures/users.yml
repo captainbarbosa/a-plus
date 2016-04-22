@@ -18,6 +18,7 @@ carl_cannoli:
 mr_math_man:
   email: mathman@email.com
   encrypted_password: "<%= Devise::Encryptor.digest User, "mathman_password" %>"
+  teacher_id: 1
 
 mrs_science_lady:
   email: sciencerulez@email.com
