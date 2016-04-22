@@ -10,6 +10,7 @@ class ParentsController < ApplicationController
 
   def new
     @parent = Parent.new
+    @parent.build_user
   end
 
   def edit
@@ -57,6 +58,6 @@ class ParentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parent_params
-      params.require(:parent).permit(:student_id, :name)
+      params.require(:parent).permit(:name, :student_id, user_attributes: [:id, :email, :password, :password_confirmation, :parent_id])
     end
 end

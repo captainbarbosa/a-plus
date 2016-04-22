@@ -27,6 +27,22 @@ class ParentsControllerTest < ActionController::TestCase
     assert_redirected_to parent_path(assigns(:parent))
   end
 
+  test "new parent should create user" do
+    assert_difference "User.count", +1 do
+      post :create, parent: {
+        name: "Bob Cannoli",
+        student_id: students(:carl_cannoli).id,
+        user_attributes: {
+          email: "bob@email.com",
+          password: "password",
+          password_confirmation: "password"
+        }
+      }
+
+      assert_equal( {}, assigns(:parent).errors.messages )
+    end
+  end
+
   test "should show parent" do
     get :show, id: @parent
     assert_response :success
