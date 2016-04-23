@@ -48,21 +48,4 @@ class ParentsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @parent
-    assert_response :success
-  end
-
-  test "should update parent" do
-    patch :update, id: @parent, parent: { student_id: @student.id, name: "Robert Ravioli" }
-    assert_redirected_to parent_path(assigns(:parent))
-  end
-
-  test "should destroy parent" do
-    assert_difference('Parent.count', -1) do
-      delete :destroy, id: @parent
-    end
-
-    assert_redirected_to parents_path
-  end
 end

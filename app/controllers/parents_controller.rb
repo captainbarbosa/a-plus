@@ -1,5 +1,5 @@
 class ParentsController < ApplicationController
-  before_action :set_parent, only: [:show, :edit, :update, :destroy]
+  before_action :set_parent, only: [:show]
 
   def index
     @parents = Parent.all
@@ -11,9 +11,6 @@ class ParentsController < ApplicationController
   def new
     @parent = Parent.new
     @parent.build_user
-  end
-
-  def edit
   end
 
   def create
@@ -30,23 +27,6 @@ class ParentsController < ApplicationController
 
     else
       redirect_to root_path, notice: "You aren't allowed to do that"
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @parent.update(parent_params)
-        format.html { redirect_to @parent, notice: 'Parent was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
-
-  def destroy
-    @parent.destroy
-    respond_to do |format|
-      format.html { redirect_to parents_url, notice: 'Parent was successfully destroyed.' }
     end
   end
 
