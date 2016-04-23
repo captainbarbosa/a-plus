@@ -5,6 +5,7 @@ class GradesControllerTest < ActionController::TestCase
     @user = User.find_by(email: "mathman@email.com")
     sign_in @user
     @grade = grades(:grade_1)
+    @student = students("alice_smith")
   end
 
   test "should get index" do
@@ -20,7 +21,7 @@ class GradesControllerTest < ActionController::TestCase
 
   test "should create grade" do
     assert_difference('Grade.count') do
-      post :create, grade: {  }
+      post :create, grade: { assignment_name: "Math Homework", grade: 95, student_id: @user.id }
     end
 
     assert_redirected_to grade_path(assigns(:grade))
@@ -37,7 +38,7 @@ class GradesControllerTest < ActionController::TestCase
   end
 
   test "should update grade" do
-    patch :update, id: @grade, grade: {  }
+    patch :update, id: @grade, grade: { assignment_name: "Math Homework", grade: 95, student_id: @user.id }
     assert_redirected_to grade_path(assigns(:grade))
   end
 

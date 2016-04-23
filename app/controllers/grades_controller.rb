@@ -10,6 +10,7 @@ class GradesController < ApplicationController
 
   def new
     @grade = Grade.new
+    @grade.teacher_id = current_user.id
   end
 
   def edit
@@ -52,6 +53,6 @@ class GradesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grade_params
-      params.fetch(:grade, {})
+      params.require(:grade).permit(:assignment_name, :grade, :student_id, :teacher_id)
     end
 end
