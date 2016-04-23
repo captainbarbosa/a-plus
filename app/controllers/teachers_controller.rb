@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  before_action :set_teacher, only: [:show, :edit, :update, :destroy]
+  before_action :set_teacher, only: [:show]
 
   def index
     @teachers = Teacher.all
@@ -17,9 +17,6 @@ class TeachersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def create
     if user_authorized
       @teacher = Teacher.new(teacher_params)
@@ -34,23 +31,6 @@ class TeachersController < ApplicationController
 
     else
       redirect_to root_path, notice: "You aren't allowed to do that"
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @teacher.update(teacher_params)
-        format.html { redirect_to @teacher, notice: 'Teacher was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
-
-  def destroy
-    @teacher.destroy
-    respond_to do |format|
-      format.html { redirect_to teachers_url, notice: 'Teacher was successfully destroyed.' }
     end
   end
 

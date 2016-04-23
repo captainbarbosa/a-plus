@@ -46,22 +46,5 @@ class TeachersControllerTest < ActionController::TestCase
     get :show, id: @teacher
     assert_response :success
   end
-
-  test "should get edit" do
-    get :edit, id: @teacher
-    assert_response :success
-  end
-
-  test "should update teacher" do
-    patch :update, id: @teacher, teacher: { name: "Mr. Math Man", course: "Linear Algebra" }
-    assert_redirected_to teacher_path(assigns(:teacher))
-  end
-
-  test "should destroy teacher" do
-    assert_difference('Teacher.count', -1) do
-      delete :destroy, id: @teacher
-    end
-
-    assert_redirected_to teachers_path
-  end
+  
 end
