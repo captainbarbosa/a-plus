@@ -29,7 +29,6 @@ class StudentsControllerTest < ActionController::TestCase
           password_confirmation: "password"
         }
       }
-
     end
 
     assert_redirected_to student_path(assigns(:student))

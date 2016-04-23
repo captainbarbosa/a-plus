@@ -14,14 +14,18 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(student_params)
+    if user_authorized
+      @student = Student.new(student_params)
 
-    respond_to do |format|
-      if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
-      else
-        format.html { render :new }
+      respond_to do |format|
+        if @student.save
+          format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        else
+          format.html { render :new }
+        end
       end
+    else
+      redirect_to root_path, notice: "You aren't allowed to do that"
     end
   end
 
