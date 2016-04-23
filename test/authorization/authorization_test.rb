@@ -5,6 +5,7 @@ class AuthorizationTest < ActionController::TestCase
     @teacher = User.find_by(email: "mathman@email.com")
     @student = User.find_by(email: "carl@email.com")
     @parent = User.find_by(email: "jane@email.com")
+    @grade = Grade.find_by(assignment_name: "Practice working with Fractions")
   end
 
   test "teachers are authorized to create teachers" do
@@ -89,6 +90,75 @@ class AuthorizationTest < ActionController::TestCase
     sign_out @student
     sign_in @parent
     post :create, parent: { student_id: @student.id, name: "Carol Cannoli" }
+    assert_redirected_to root_path
+  end
+
+  test "only teachers are authorized to create grades" do
+    @controller = GradesController.new
+    sign_in @teacher
+
+    assert_difference('Grade.count') do
+      post :create, grade: { assignment_name: "Algebra Practice", grade: 100, student_id: @student.id }
+    end
+
+    assert_redirected_to grade_path(assigns(:grade))
+  end
+
+  test "only teachers are authorized to update grades" do
+    @controller = GradesController.new
+    sign_in @teacher
+
+    patch :update, id: @grade.id, grade: { assignment_name: "Algebra Practice", grade: 90, student_id: @student.id }
+
+    assert_redirected_to grade_path(assigns(:grade))
+  end
+
+  test "only teachers are authorized to delete grades" do
+    @controller = GradesController.new
+    sign_in @teacher
+
+    assert_difference "Grade.count", -1 do
+      delete :destroy, id: @grade.id
+    end
+  end
+
+  test "students and parents are not allowed to create grades" do
+    @controller = GradesController.new
+    sign_in @student
+    assert_difference "Grade.count", 0 do
+      delete :destroy, id: @grade.id
+    end
+    assert_redirected_to root_path
+
+    sign_out @student
+    sign_in @parent
+    assert_difference "Grade.count", 0 do
+      delete :destroy, id: @grade.id
+    end
+    assert_redirected_to root_path
+  end
+
+  test "students and parents are not allowed to update grades" do
+    @controller = GradesController.new
+    sign_in @student
+    patch :update, id: @grade.id, grade: { assignment_name: "Algebra Practice", grade: 90, student_id: @student.id }
+    assert_redirected_to root_path
+
+    sign_out @student
+    sign_in @parent
+    patch :update, id: @grade.id, grade: { assignment_name: "Algebra Practice", grade: 90, student_id: @student.id }
+    assert_redirected_to root_path
+  end
+
+  test "students and parents are not allowed to delete grades" do
+    @controller = GradesController.new
+    sign_in @student
+    delete :destroy, id: @grade.id
+    assert_redirected_to root_path
+
+    sign_out @student
+    sign_in @parent
+    delete :destroy, id: @grade.id
     assert_redirected_to root_path
   end
 end

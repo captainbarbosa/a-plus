@@ -17,31 +17,45 @@ class GradesController < ApplicationController
   end
 
   def create
-    @grade = Grade.new(grade_params)
+    if user_authorized
+      @grade = Grade.new(grade_params)
 
-    respond_to do |format|
-      if @grade.save
-        format.html { redirect_to @grade, notice: 'Grade was successfully created.' }
-      else
-        format.html { render :new }
+      respond_to do |format|
+        if @grade.save
+          format.html { redirect_to @grade, notice: 'Grade was successfully created.' }
+        else
+          format.html { render :new }
+        end
       end
+
+    else
+      redirect_to root_path, notice: "You aren't allowed to do that"
     end
   end
 
   def update
-    respond_to do |format|
-      if @grade.update(grade_params)
-        format.html { redirect_to @grade, notice: 'Grade was successfully updated.' }
-      else
-        format.html { render :edit }
+    if user_authorized
+      respond_to do |format|
+        if @grade.update(grade_params)
+          format.html { redirect_to @grade, notice: 'Grade was successfully updated.' }
+        else
+          format.html { render :edit }
+        end
       end
+
+    else
+      redirect_to root_path, notice: "You aren't allowed to do that"
     end
   end
 
   def destroy
-    @grade.destroy
-    respond_to do |format|
-      format.html { redirect_to grades_url, notice: 'Grade was successfully destroyed.' }
+    if user_authorized
+      @grade.destroy
+      respond_to do |format|
+        format.html { redirect_to grades_url, notice: 'Grade was successfully destroyed.' }
+      end
+    else
+      redirect_to root_path, notice: "You aren't allowed to do that"
     end
   end
 
