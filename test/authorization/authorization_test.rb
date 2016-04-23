@@ -60,4 +60,35 @@ class AuthorizationTest < ActionController::TestCase
     post :create, student: { teacher_id: @teacher.id, name: "Francis Frankfurter" }
     assert_redirected_to root_path
   end
+
+  test "only teachers are authorized to create parents" do
+    @controller = ParentsController.new
+    sign_in @teacher
+
+    assert_difference('Parent.count') do
+      post :create, parent: {
+        name: "Bob Cannoli",
+        student_id: students(:carl_cannoli).id,
+        user_attributes: {
+          email: "bob@email.com",
+          password: "password",
+          password_confirmation: "password"
+        }
+      }
+    end
+
+    assert_redirected_to parent_path(assigns(:parent))
+  end
+
+  test "students and parents are not authorized to create parents" do
+    @controller = ParentsController.new
+    sign_in @student
+    post :create, parent: { student_id: @student.id, name: "Carol Cannoli" }
+    assert_redirected_to root_path
+
+    sign_out @student
+    sign_in @parent
+    post :create, parent: { student_id: @student.id, name: "Carol Cannoli" }
+    assert_redirected_to root_path
+  end
 end

@@ -17,14 +17,19 @@ class ParentsController < ApplicationController
   end
 
   def create
-    @parent = Parent.new(parent_params)
+    if user_authorized
+      @parent = Parent.new(parent_params)
 
-    respond_to do |format|
-      if @parent.save
-        format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
-      else
-        format.html { render :new }
+      respond_to do |format|
+        if @parent.save
+          format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
+        else
+          format.html { render :new }
+        end
       end
+      
+    else
+      redirect_to root_path, notice: "You aren't allowed to do that"
     end
   end
 
