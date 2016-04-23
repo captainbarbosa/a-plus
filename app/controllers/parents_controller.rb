@@ -27,7 +27,7 @@ class ParentsController < ApplicationController
           format.html { render :new }
         end
       end
-      
+
     else
       redirect_to root_path, notice: "You aren't allowed to do that"
     end

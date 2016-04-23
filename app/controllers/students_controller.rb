@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show]
 
   def index
     @students = Student.all
@@ -26,23 +26,6 @@ class StudentsController < ApplicationController
       end
     else
       redirect_to root_path, notice: "You aren't allowed to do that"
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
-
-  def destroy
-    @student.destroy
-    respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
     end
   end
 

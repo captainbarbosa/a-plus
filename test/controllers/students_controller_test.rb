@@ -56,29 +56,4 @@ class StudentsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @student
-    assert_response :success
-  end
-
-  test "should update student" do
-    patch :update, id: @student, student: {
-      teacher_id: teachers(:mrs_science_lady).id,
-      name: "Bob",
-      user_attributes: {
-        email: "bob@email.com",
-        password: "new_password",
-        password_confirmation: "new_password"
-      }
-    }
-    assert_redirected_to student_path(assigns(:student))
-  end
-
-  test "should destroy student" do
-    assert_difference('Student.count', -1) do
-      delete :destroy, id: @student
-    end
-
-    assert_redirected_to students_path
-  end
 end
