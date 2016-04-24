@@ -14,3 +14,58 @@
  *= require_tree .
  *= require_self
  */
+
+ .content {
+   padding: 0% 3% 0% 3%;
+ }
+
+ h2 {
+   text-align: center;
+   padding: 10px 10px 15px 10px;
+ }
+
+ .narrow-content {
+   width: 40%;
+   margin: auto;
+ }
+
+ header {
+   padding: 0%;
+   text-align: center;
+ }
+
+ .alert-danger, .alert-notice {
+   padding: 0px;
+ }
+
+ .form-alert {
+   padding: 10px;
+ }
+
+/* style bootstrap tables to have fixed width and common sizing */
+
+.table-index {
+  width: 500px;
+}
+
+.left-column {
+  width: 150px;
+}
+
+.middle-column {
+  width: 50px;
+}
+
+.right-column {
+  width: 100px;
+}
+
+.centered-column-content {
+  text-align: center;
+}
+
+.row-button-options {
+  margin-left: 30px;
+}
+
+/* -------------------------- */

@@ -1,29 +1,50 @@
 <%= form_for(@grade) do |f| %>
-  <% if @grade.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@grade.errors.count, "error") %> prohibited this grade from being saved:</h2>
 
-      <ul>
-      <% @grade.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="narrow-content">
+    <% if @grade.errors.any? %>
+      <div class="form-alert alert alert-danger" role="alert">
+        <strong><%= pluralize(@grade.errors.count, "error") %> prohibited this grade from being saved:</strong>
 
-
-  <%= f.label :assignment_name, 'Assignment Name', class: "control-label" %>
-  <%= f.text_field :assignment_name, class: "form-control" %>
-
-  <%= f.label :grade, 'Grade', class: "control-label" %>
-  <%= f.text_field :grade, class: "form-control" %>
-
-  <%= f.label :student_id, 'Student', class: "control-label" %>
-  <%= f.text_field :student_id, class: "form-control" %>
-
-  <%= f.hidden_field :teacher_id %>
-
-  <div class="actions">
-    <%= f.submit %>
+        <ul>
+          <% @grade.errors.full_messages.each do |message| %>
+            <li><%= message %></l1>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
+
+  <form>
+    <div class="narrow-content">
+      <%= f.hidden_field :teacher_id %>
+
+      <fieldset class="form-group">
+        <%= f.label :assignment_name, 'Assignment Name', class: "control-label" %>
+        <%= f.text_field :assignment_name, class: "form-control" %>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <%= f.label :grade, 'Grade', class: "control-label" %>
+        <%= f.text_field :grade, class: "form-control" %>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <%= f.label :student_id, 'Student', class: "control-label" %>
+        <%= f.select(
+            :student_id,
+            options_from_collection_for_select(
+              Student.all,
+              :id,
+              :name
+            ),
+            {
+              include_blank: "Select a student"
+            },
+            { class: "form-control" }
+        ) %>
+      </fieldset>
+
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </form>
 <% end %>

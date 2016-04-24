@@ -1,37 +1,47 @@
 <%= form_for(@teacher) do |f| %>
   <% if @teacher.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+    <div class="form-alert alert alert-danger" role="alert">
+      <strong><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</strong>
 
       <ul>
-      <% @teacher.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @teacher.errors.full_messages.each do |message| %>
+          <li><%= message %></l1>
+        <% end %>
       </ul>
+
     </div>
   <% end %>
 
+  <form>
+    <fieldset class="form-group">
+      <%= f.label :name, 'Name', class: "control-label" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </fieldset>
 
-  <%= f.label :name, 'name', class: "control-label" %>
-  <%= f.text_field :name, class: "form-control" %>
+    <fieldset class="form-group">
+      <%= f.label :course, 'Course', class: "control-label" %>
+      <%= f.text_field :course, class: "form-control" %>
+    </fieldset>
 
-  <%= f.label :course, 'course', class: "control-label" %>
-  <%= f.text_field :course, class: "form-control" %>
+    <%= f.fields_for :user do |user_form| %>
+      <%= user_form.hidden_field :teacher_id %>
 
-  <%= f.fields_for :user do |user_form| %>
-    <%= user_form.hidden_field :teacher_id %>
+      <fieldset class="form-group">
+        <%= user_form.label :email, 'Email', class: "control-label" %>
+        <%= user_form.text_field :email, class: "form-control"%>
+      </fieldset>
 
-    <%= user_form.label :email, 'email', class: "control-label" %>
-    <%= user_form.text_field :email %>
+      <fieldset class="form-group">
+        <%= user_form.label :password, class: "control-label" %>
+        <%= user_form.password_field :password, class: "form-control" %>
+      </fieldset>
 
-    <%= user_form.label :password, class: "control-label" %>
-    <%= user_form.text_field :password %>
+      <fieldset class="form-group">
+        <%= user_form.label :password_confirmation, class: "control-label" %>
+        <%= user_form.password_field :password_confirmation, class: "form-control" %>
+      </fieldset>
+      <% end %>
 
-    <%= user_form.label :password_confirmation, class: "control-label" %>
-    <%= user_form.text_field :password_confirmation %>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <%= f.submit class: "btn btn-primary" %>
+  </form>
 <% end %>
