@@ -1,4 +1,31 @@
-<p id="notice"><%= notice %></p>
+<h2><%= @student.name %></h2>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<div class="narrow-content">
+  <div class="student-details">
+    <p><strong>Teacher:</strong> <%= Teacher.find_by(@student.teacher_id).name %> </p>
+    <p><strong>Course:</strong> <%= Teacher.find_by(@student.teacher_id).course %> </p>
+    <% if Parent.where(student_id: @student.id) != nil %>
+      <p><strong>Parents:</strong>
+        <%= @parents.map { |parent| parent.name }.join(", ") %>
+      </p>
+    <% end %>
+  </div>
+
+  <h3>Grades</h3>
+  <table class="student-grade-table table">
+    <thead>
+      <tr>
+        <th>Assignment</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @grades.each do |grade| %>
+        <tr>
+          <td><%= grade.assignment_name %></td>
+          <td><%= grade.grade %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

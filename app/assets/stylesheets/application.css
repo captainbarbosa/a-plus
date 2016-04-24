@@ -24,9 +24,17 @@
    padding: 10px 10px 15px 10px;
  }
 
+ h3 {
+   margin-top: 40px;
+ }
+
  .narrow-content {
    width: 40%;
    margin: auto;
+ }
+
+ .center-button {
+   margin-left: 40%
  }
 
  header {
@@ -46,6 +54,7 @@
 
 .table-index {
   width: 500px;
+  margin-top: 30px;
 }
 
 .left-column {
@@ -69,3 +78,11 @@
 }
 
 /* -------------------------- */
+
+.student-details {
+  font-size: 18px;
+}
+
+.student-grade-table {
+  margin-top: 20px;
+}

@@ -6,6 +6,8 @@ class StudentsController < ApplicationController
   end
 
   def show
+    @parents = Parent.where(student_id: @student.id)
+    @grades = Grade.where(student_id: @student.id)
   end
 
   def new

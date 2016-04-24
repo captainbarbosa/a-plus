@@ -23,7 +23,7 @@ class TeachersController < ApplicationController
 
       respond_to do |format|
         if @teacher.save
-          format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
+          format.html { redirect_to root_path, notice: 'Teacher was successfully created.' }
         else
           format.html { render :new }
         end

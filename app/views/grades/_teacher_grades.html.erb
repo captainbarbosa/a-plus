@@ -1,23 +1,30 @@
+<div class="center-button">
+  <button type="button" class=" btn btn-default"><%= link_to 'New Grade', new_grade_path %></button>
+</div>
+
 <table class="table-index table">
-   <thead>
+  <thead>
+    <tr>
+      <th>Assignment</th>
+      <th>Score</th>
+      <th>Student</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grades.each do |grade| %>
       <tr>
-         <th>Assignment</th>
-         <th>Score</th>
-         <th class="centered-column-content">Actions</th>
-      </tr>
-   </thead>
-   <tbody>
-     <% @grades.each do |grade| %>
-      <tr>
-          <td class="left-column"><%= grade.assignment_name %></td>
-          <td class="middle-column"><%= grade.grade %></td>
-          <td class="right-column">
-            <div class="row-button-options btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_grade_path(grade) %></button>
-              <button type="button" class="btn btn-default"><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-            </div>
-          </td>
+        <td><%= grade.assignment_name %></td>
+        <td><%= grade.grade %></td>
+        <td><%= Student.find(grade.student_id).name %></td>
+        <td><%= grade.updated_at.strftime("%m/%d/%Y")%></td>
+        <td>
+          <%= link_to image_tag('black_pencil.svg', size: "20x20"), edit_grade_path(grade.id) %>
+          <%= link_to image_tag('close_icon.svg', size: "15x15"), grade, method: :delete %>
+        </td>
       </tr>
     <% end %>
-   </tbody>
+  </tbody>
 </table>
+</div>

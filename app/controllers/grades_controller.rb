@@ -2,7 +2,15 @@ class GradesController < ApplicationController
   before_action :set_grade, only: [:show, :edit, :update, :destroy]
 
   def index
+    # If current user is a teacher, grades are retrieved this way
     @grades = Grade.all
+
+    # If current user is a student, grades are retrieved this way
+    @student_grades = Grade.where(student_id: current_user.student_id)
+
+    # If current user is a parent, grades are retrieved this way
+    @student = Student.find_by(current_user.parent_id)
+    @parent_grades = Grade.where(student_id: @student.id)
   end
 
   def show
@@ -22,7 +30,7 @@ class GradesController < ApplicationController
 
       respond_to do |format|
         if @grade.save
-          format.html { redirect_to @grade, notice: 'Grade was successfully created.' }
+          format.html { redirect_to root_path, notice: 'Grade was successfully created.' }
         else
           format.html { render :new }
         end

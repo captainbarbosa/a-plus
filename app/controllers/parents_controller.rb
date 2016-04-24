@@ -19,7 +19,7 @@ class ParentsController < ApplicationController
 
       respond_to do |format|
         if @parent.save
-          format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
+          format.html { redirect_to root_path, notice: 'Parent was successfully created.' }
         else
           format.html { render :new }
         end

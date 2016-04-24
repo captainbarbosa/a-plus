@@ -14,23 +14,27 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">A+</a>
+        <a class="navbar-brand" href="<%= root_path %>"><strong>A+</strong></a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><%= link_to "Grades", grades_path %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#"><%= link_to "Add teacher", new_teacher_path %></a></li>
-              <li><a href="#"><%= link_to "Add parent", new_parent_path %></a></li>
-              <li><a href="#"><%= link_to "Add student", new_student_path %></a></li>
-            </ul>
-          </li>
+          <% if account_type == "Teacher" %>
+            <li><%= link_to "Students", students_path %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><%= link_to "Add teacher", new_teacher_path %></a></li>
+                <li><a href="#"><%= link_to "Add parent", new_parent_path %></a></li>
+                <li><a href="#"><%= link_to "Add student", new_student_path %></a></li>
+              </ul>
+            </li>
+          <% end %>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
+          <li><a><i><%= account_type %></i></a></li>
           <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
         </ul>
       </div>
@@ -41,10 +45,6 @@
     <% if notice %>
       <div class="alert alert-success" role="alert">
         <p class="notice"><%= notice %></p>
-      </div>
-    <% elsif alert %>
-      <div class="alert alert-danger" role="alert">
-        <p class="alert"><%= alert %></p>
       </div>
     <% end %>
   </header>

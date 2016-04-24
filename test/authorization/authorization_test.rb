@@ -16,7 +16,7 @@ class AuthorizationTest < ActionController::TestCase
       post :create, teacher: { name: "Dr. Doolittle", course: "Animal Science" }
     end
 
-    assert_redirected_to teacher_path(assigns(:teacher))
+    assert_redirected_to root_path(assigns(:teacher))
   end
 
   test "students and parents are not authorized to create teachers" do
@@ -78,7 +78,7 @@ class AuthorizationTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to parent_path(assigns(:parent))
+    assert_redirected_to root_path(assigns(:parent))
   end
 
   test "students and parents are not authorized to create parents" do
@@ -101,7 +101,7 @@ class AuthorizationTest < ActionController::TestCase
       post :create, grade: { assignment_name: "Algebra Practice", grade: 100, student_id: @student.id }
     end
 
-    assert_redirected_to grade_path(assigns(:grade))
+    assert_redirected_to root_path(assigns(:grade))
   end
 
   test "only teachers are authorized to update grades" do

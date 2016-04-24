@@ -1,22 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Students</h1>
+<div class="narrow-content">
+  <h2>View Students</h2>
 
-<button type="button" class="btn btn-default"><%= link_to 'New Student', new_student_path %></button>
-<button type="button" class="btn btn-default"><%= link_to 'Back to Dashboard', root_path %></button>
+  <div class="center-button">
+    <button type="button" class="btn btn-default"><%= link_to 'New Student', new_student_path %></button>
+  </div>
 
+  <table class="table-index table">
+     <thead>
+        <tr>
+           <th>Name</th>
+           <th>Teacher</th>
+           <th>Course</th>
+        </tr>
+     </thead>
 
-<table class="table-index table">
-   <thead>
-      <tr>
-         <th>All Students</th>
-      </tr>
-   </thead>
-   <tbody>
-     <% @students.each do |student| %>
-      <tr>
-          <td class="column-1"><%= link_to student.name, student %></td>
-      </tr>
-    <% end %>
-   </tbody>
-</table>
+     <tbody>
+       <% @students.each do |student| %>
+        <tr>
+          <td><%= link_to student.name, student %></td>
+          <td><%= Teacher.find_by(student.id).name %></td>
+          <td><%= Teacher.find_by(student.id).course %></td>
+        </tr>
+      <% end %>
+     </tbody>
+  </table>
+</div>

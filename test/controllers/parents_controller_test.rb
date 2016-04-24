@@ -24,7 +24,7 @@ class ParentsControllerTest < ActionController::TestCase
       post :create, parent: { student_id: @student.id, name: "Robert Ravioli" }
     end
 
-    assert_redirected_to parent_path(assigns(:parent))
+    assert_redirected_to root_path(assigns(:parent))
   end
 
   test "new parent should create user" do

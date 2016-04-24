@@ -24,7 +24,7 @@ class TeachersControllerTest < ActionController::TestCase
       post :create, teacher: { name: "Dr. Doolittle", course: "Animal Science" }
     end
 
-    assert_redirected_to teacher_path(assigns(:teacher))
+    assert_redirected_to root_path(assigns(:teacher))
   end
 
   test "new teacher should create user" do
@@ -46,5 +46,5 @@ class TeachersControllerTest < ActionController::TestCase
     get :show, id: @teacher
     assert_response :success
   end
-  
+
 end

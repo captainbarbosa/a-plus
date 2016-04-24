@@ -24,7 +24,7 @@ class GradesControllerTest < ActionController::TestCase
       post :create, grade: { assignment_name: "Math Homework", grade: 95, student_id: @user.id }
     end
 
-    assert_redirected_to grade_path(assigns(:grade))
+    assert_redirected_to root_path(assigns(:grade))
   end
 
   test "should show grade" do

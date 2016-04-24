@@ -1,5 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="narrow-content">
+  <h2>View Grades</h2>
 
-<h1>View Grades</h1>
+  <% if current_user.student_id != nil %>
+    <%= render "student_grades" %>
+  <% end %>
 
-<button type="button" class="btn btn-default"><%= link_to 'New Grade', new_grade_path %></button>
+  <% if current_user.parent_id != nil %>
+    <%= render "parent_grades" %>
+  <% end %>
+
+  <% if current_user.teacher_id != nil %>
+    <%= render "teacher_grades" %>
+  <% end %>
+
+</div>
