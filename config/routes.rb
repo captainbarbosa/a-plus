@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :teachers
 
   resources :students do
+    get 'send_report'
     resources :grades
   end
 

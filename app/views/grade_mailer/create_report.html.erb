@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Your grade report is ready</h1>
+    <h2>Grades are listed below:</h2>
+    <p>
+      <ul>
+        <% @grades.each do |grade| %>
+          <li><%= grade.assignment_name %> - <%= grade.grade %></li>
+        <% end %>
+      </ul>
+    </p>
+  </body>
+</html>

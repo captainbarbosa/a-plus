@@ -1,6 +1,12 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show]
 
+  def send_report
+    @student = Student.find(params[:student_id])
+    GradeMailer.create_report(@student).deliver
+    redirect_to students_path, notice: "Report generated"
+  end
+
   def index
     @students = Student.all
   end
