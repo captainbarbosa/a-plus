@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
 
   def send_report
     @student = Student.find(params[:student_id])
-    GradeMailer.create_report(@student).deliver
+    GradeMailer.create_report(@student).deliver_now
     redirect_to students_path, notice: "Report generated"
   end
 

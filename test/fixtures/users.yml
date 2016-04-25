@@ -4,7 +4,8 @@
 alice_smith:
   email: alice@email.com
   encrypted_password: "<%= Devise::Encryptor.digest User, "alice_password" %>"
-
+  student: alice_smith
+  
 jimmy_mcjim:
   email: jimmy@email.com
   encrypted_password: "<%= Devise::Encryptor.digest User, "jimmy_password" %>"
